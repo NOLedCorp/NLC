@@ -8,7 +8,10 @@ export class HttpService{
       
     //http://localhost:60489/Home/GetFactorial?number=  ASP.NET MVC
     //http://localhost:8080/angular/getFactorial.php?number=    PHP
-    getFactorial(num: number){
-        return this.http.get('http://localhost:80/nlc/test.php?number=' + num);
+    getUsers(){
+        return this.http.get('http://localhost:80/nlc/users.php');
+    }
+    addUser(user:any){
+        return this.http.post('http://localhost:80/nlc/test.php', user);
     }
 }

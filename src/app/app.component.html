@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
+<main-menu></main-menu>
 <div class="container">
   <div *ngIf="done">{{factorial}}</div>
   <div class="form-group">
@@ -12,14 +12,14 @@
   <table class="table table-dark table-hover table-striped">
     <thead class="thead-light">
       <tr>
-        <th>Mark</th>
-        <th>Date</th>        
+        <th>Name</th>
+        <th>Email</th>        
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let m of mas">
-        <td>{{m.Mark}}</td>
-        <td>{{m.Date | date:'dd MMMM, yyyy'}}</td>
+        <td>{{m.Name}}</td>
+        <td>{{m.Email}}</td>
       </tr>
     </tbody>
   </table>

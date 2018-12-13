@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpService} from './services/http.service';
 import { FormsModule } from '@angular/forms';
+import { User } from './menu/menu.component';
    
 @Component({
     selector: 'app-root',
@@ -12,14 +13,15 @@ export class AppComponent {
     factorial: number;
     done: boolean = false;
     mas:any;
-    constructor(private httpService: HttpService){}
-    submit(num: number){
-        this.httpService.getFactorial(Number(num)).subscribe((data:any) => {
-            console.log(data);
-            this.mas = data;
-            this.mas.forEach(element => {
-              element.Date = new Date(element.Date);
+    constructor(private httpService: HttpService){
+        let t = this;
+        let s = setInterval(function(this){
+            t.httpService.getUsers().subscribe((data:User[]) => {
+                
+                t.mas = data;
+                
             });
-        });
+        }, 5000);
     }
+    
 }

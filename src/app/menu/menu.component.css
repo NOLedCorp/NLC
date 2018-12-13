@@ -1,0 +1,54 @@
+span.user{
+    z-index: 12;
+    position: relative;
+    font-size: 25px;
+    margin-left: 10px;
+    padding: 0 10px;
+    color: rgb(170, 170, 170);
+}
+.user>i:hover{
+    transition: 0.3s;
+    color: gray;
+    cursor: pointer;
+}
+.cur-user{
+    color: gray;
+}
+.user-container{
+    z-index: 60;
+    position: relative;
+    display: inline;
+}
+.user-form{
+    z-index: 10;
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid gray;
+    padding: 10px;
+    transition: 0.5s;
+    top:0;
+    right: 0;
+    overflow: hidden;
+    
+}
+.show-form{
+    
+    
+    height: 220px;
+    opacity: 1;
+    width: 250px;
+    right: 10px;
+    top:50px;
+}
+.item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.item:not(:last-child){
+    margin-bottom:5px; 
+}
