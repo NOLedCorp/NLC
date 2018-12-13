@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpService } from '../services/http.service';
 
 @Component({
@@ -8,10 +8,21 @@ import { HttpService } from '../services/http.service';
 })
 export class MenuComponent implements OnInit {
   showUForm:boolean=false;
+  
   showRForm:boolean=false;
   showMenu:boolean=false;
   scrWidth:number=0;
   user:User = new User();
+  @HostListener('document:scroll', [])
+            onScroll(): void {
+                if(window.pageYOffset>0){
+                    console.log(true);
+                    this.showMenu = true;
+                }
+                else{
+                    this.showMenu = false;
+                }
+            }
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {

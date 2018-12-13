@@ -2,7 +2,12 @@
     position: fixed;
     top:0;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: 0.3s;
     z-index: 300;
+}
+@media(max-width:800px){
+    .menu{
+        display: none;
+    }
 }

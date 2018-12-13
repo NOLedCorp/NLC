@@ -1,7 +1,5 @@
-@media(max-width:990px){
-    .in{
-        display: block;
-    }
+@media(max-width:991px){
+    
     span.user{
         margin-left: 0!important;
         padding-left: 0 !important; 
@@ -34,10 +32,40 @@
         display: none !important;
     }
 }
-@media(min-width:991px){
+@media(min-width:992px){
     .nav-item{
         border-right: 1px solid gray;
     }
+}
+/* .in{
+    opacity: 1 !important;
+} */
+.in .navbar-collapse{
+    opacity: 1;
+}
+.in h1{
+    color:rgb(44, 44, 44) !important;
+}
+.in .open, .in .open::before, .in .open::after{
+    background-color: rgb(44, 44, 44);
+}
+.in{
+    transition: 0.2s;
+    background-color: white;
+}
+.in .open{
+    transform: rotate(-45deg);
+}
+.in .open::before{
+    width: 100%;
+    transform: rotate(-90deg);
+    top: 0 !important;
+}
+.in .open::after{
+    opacity: 0;
+}
+h1{
+    color: white;
 }
 .nav-item>a::before{
     height: 1px;
@@ -134,4 +162,57 @@ span.user{
 }
 .item:not(:last-child){
     margin-bottom:5px; 
+}
+
+.navbar-collapse{
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.top-panel{
+    position: relative;
+    z-index: 301;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0 30px;
+}
+
+.open{
+    display: block;
+    height: 2px;
+    background-color: white;
+    width: 18px;
+    margin-right: 50px;
+    position: relative;
+    transition: 0.2s;
+    opacity: 1;
+}
+.open::before, .open::after{
+    display: block;
+    height: 2px;
+    position: absolute;
+    content: '';
+    background-color: white;
+    transition: 0.2s;
+}
+
+.open::before{
+    top:-5px;
+    width: 16px;
+    
+}
+.open::after{
+    bottom:-5px;
+    width: 13px;
+}
+.open-btn:hover .open::after, .open-btn:hover .open::before{
+    width: 18px;
+}
+.open-btn{
+    height: 16px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
 }

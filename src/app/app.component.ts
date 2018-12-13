@@ -17,6 +17,7 @@ export class AppComponent {
     @HostListener('document:scroll', [])
             onScroll(): void {
                 if(window.pageYOffset>0){
+                    console.log(true);
                     this.showMenu = true;
                 }
                 else{
