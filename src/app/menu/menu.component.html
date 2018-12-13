@@ -1,39 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" [routerLink]='["/"]'>NoLedCorp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggle()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+  <div class="collapse navbar-collapse" [ngClass]="{'in':showMenu}" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+      <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' class="nav-item"> 
+        <a [routerLink]='["/"]' class="nav-link" >
+             Главная
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+      </li>
+      <li [routerLinkActive]='["link-active"]' class="nav-item"> 
+        <a [routerLink]='["/projects"]' class="nav-link" >
+             Проекты
+        </a>
+      </li>
+      
+      <li [routerLinkActive]='["link-active"]' class="nav-item dropdown">
+        <a [routerLink]='["/technologies"]' class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Технологии
+        </a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Angular</a>
+          <a class="dropdown-item" href="#">React</a>
+          <a class="dropdown-item" href="#">Bootstrap</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">ASP.Net</a>
+          <a class="dropdown-item" href="#">PHP</a>
+          <a class="dropdown-item" href="#">Node.js</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li [routerLinkActive]='["link-active"]' class="nav-item">
+        <a [routerLink]='["/team"]' class="nav-link" href="#">Команда</a>
+      </li>
+      <li [routerLinkActive]='["link-active"]' class="nav-item">
+        <a [routerLink]='["/contacts"]' class="nav-link" href="#">Контакты</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Найти" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </form> -->
     <div class="user-container">
-      <span class="user"><i (click)="showForm()" class="fas fa-user-secret"></i></span>
-      <div class="user-form" [ngClass]="{'show-form':showUForm}" [ngStyle]="{'height':(showRForm && showUForm)?'343px':''}">
+      <span *ngIf="!showUForm" class="user"><i (click)="showForm()" class="fas fa-user-secret"></i></span>
+      <div class="user-form" [ngClass]="{'show-form':showUForm}" [ngStyle]="{'height':(showRForm && showUForm)?'343px':'', 'width':(showUForm && scrWidth>0)?scrWidth+'px':''}">
         <form>
           <h3>Вход</h3>
           <div class="item">

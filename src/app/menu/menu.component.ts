@@ -9,10 +9,18 @@ import { HttpService } from '../services/http.service';
 export class MenuComponent implements OnInit {
   showUForm:boolean=false;
   showRForm:boolean=false;
+  showMenu:boolean=false;
+  scrWidth:number=0;
   user:User = new User();
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    if(window.innerWidth<991){
+      this.scrWidth=window.innerWidth-32;
+    }
+  }
+  toggle(){
+    this.showMenu=!this.showMenu;
   }
   showForm(){
     this.showUForm = !this.showUForm;

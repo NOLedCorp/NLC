@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<main-menu></main-menu>
-<div class="container">
+<div class="menu" [ngStyle]="{'display':showMenu?'block':'none'}">
+    <main-menu ></main-menu>
+</div>
+<!-- <div class="container">
   <div *ngIf="done">{{factorial}}</div>
   <div class="form-group">
       <label>Введите число</label>
@@ -23,6 +25,6 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
 
 <router-outlet></router-outlet>
