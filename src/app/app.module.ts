@@ -12,6 +12,7 @@ import { TechnologiesComponent } from './technologies/technologies.component';
 import { TeamComponent } from './team/team.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     TechnologiesComponent,
     TeamComponent,
     ContactsComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
