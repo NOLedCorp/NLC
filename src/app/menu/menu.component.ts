@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
   firstPage:boolean=false;
   showLight:boolean=true;
   showRForm:boolean=false;
-  showMenu:boolean=false;
+  showMenu:boolean=true;
   scrWidth:number=0;
   menuHeight:number=0;
   user:User = new User();
@@ -26,17 +26,15 @@ export class MenuComponent implements OnInit {
                     
                 }
                 else{
-                  if(this.firstPage){
-                    this.showLight=false;
+                  if(window.innerWidth>991 && this.firstPage){
+                    this.showMenu = false;
                   }
-                  else{
-                    this.showMenu = true;
+                  if(this.firstPage){
+                    this.showLight=this.showMenu;
                   }
                   
                 }
-                if(window.pageYOffset==0 && window.innerWidth>991 && this.firstPage){
-                    this.showMenu = false;
-                }
+                
             }
   constructor(private httpService: HttpService, private router:Router) { }
 
@@ -69,7 +67,7 @@ export class MenuComponent implements OnInit {
   toggle(){
     this.showMenu=!this.showMenu;
     if(this.firstPage){
-      this.showLight=!this.showLight;
+      this.showLight= this.showMenu;
     }
     this.showUForm=false;
 
