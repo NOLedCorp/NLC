@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpService } from '../services/http.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'main-menu',
@@ -8,30 +9,70 @@ import { HttpService } from '../services/http.service';
 })
 export class MenuComponent implements OnInit {
   showUForm:boolean=false;
-  
+  firstPage:boolean=false;
+  showLight:boolean=true;
   showRForm:boolean=false;
   showMenu:boolean=false;
   scrWidth:number=0;
+  menuHeight:number=0;
   user:User = new User();
   @HostListener('document:scroll', [])
             onScroll(): void {
                 if(window.pageYOffset>0){
-                    console.log(true);
+                  if(window.innerWidth>991){
                     this.showMenu = true;
+                  }
+                  this.showLight=true;
+                    
                 }
                 else{
+                  if(this.firstPage){
+                    this.showLight=false;
+                  }
+                  else{
+                    this.showMenu = true;
+                  }
+                  
+                }
+                if(window.pageYOffset==0 && window.innerWidth>991 && this.firstPage){
                     this.showMenu = false;
                 }
             }
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private router:Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      console.log(evt.url);
+      if(evt.url=='/'){
+        this.firstPage=true;
+        this.showMenu=false;
+        this.showLight=false;
+      }
+      else{
+        this.firstPage=false;
+        this.showLight=true;
+        if(window.innerWidth<992){
+          this.showMenu=false;
+        }
+      }
+      
+      window.scrollTo(0, 0)
+     });
     if(window.innerWidth<991){
-      this.scrWidth=window.innerWidth-32;
+      this.scrWidth=window.innerWidth-40;
     }
+    this.menuHeight=window.innerHeight-80;
   }
   toggle(){
     this.showMenu=!this.showMenu;
+    if(this.firstPage){
+      this.showLight=!this.showLight;
+    }
+    this.showUForm=false;
+
   }
   showForm(){
     this.showUForm = !this.showUForm;

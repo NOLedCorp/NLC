@@ -5,9 +5,5 @@
     opacity: 1;
     transition: 0.3s;
     z-index: 300;
-}
-@media(max-width:800px){
-    .menu{
-        display: none;
-    }
+    background-color: transparent;
 }
