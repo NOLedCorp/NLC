@@ -23,48 +23,96 @@
     justify-content: center;
     padding: 20px;
 }
-.container{
+.top-photo .container{
     position: relative;
     z-index: 1;
-    
-}
-.open{
-    display: block;
-    height: 2px;
-    background-color: white;
-    width: 18px;
-    margin-right: 50px;
-    position: relative;
-    transition: 0.2s;
-    opacity: 1;
-}
-.open::before, .open::after{
-    display: block;
-    height: 2px;
-    position: absolute;
-    content: '';
-    background-color: white;
-    transition: 0.2s;
-}
-
-.open::before{
-    top:-5px;
-    width: 16px;
-    
-}
-.open::after{
-    bottom:-5px;
-    width: 13px;
-}
-.open-btn:hover .open::after, .open-btn:hover .open::before{
-    width: 18px;
-}
-.open-btn{
-    height: 16px;
     display: flex;
-    align-items: center;
-    position: absolute;
-    left: 0;
+    flex-direction: column;
+    padding-top: 150px;
+    
+    height: 100%;
+}
+.top-photo .container>p{
+    transition: 0.2s;
+    line-height: 55px;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+.top-photo .container>span{
+    transition: 0.2s;
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 20px;
 }
 
+.top-photo button{
+    margin-top: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    width: 200px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+.top-photo button:hover{
+    background-color: rgba(255, 255, 255, 0.171);
+}
+.top-photo button:focus{
+    box-shadow: none;
+}
 
+@media(max-width:768px){
+    .top-photo .container>p{
+        line-height: 30px;
+        font-size: 25px;
+    }
+    .top-photo .container>span{
+      
+        font-size: 16px;
+    }
+    .top-photo button{
+        margin-top: 20px;
+        
+        width: 150px;
+        font-size: 15px;
+    }
+}
+
+@media(max-width:992px){
+    .steps-body>div{
+        border-right: none !important;
+        border-bottom:1px solid lightgrey; 
+    }
+}
+.steps{
+    min-height: 100vh;
+}
+.steps-header{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.steps-header *{
+    text-align: center;
+}
+.steps-header h1{
+    font-weight: 300;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+.steps-body>div{
+    margin-top: 30px;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.steps-body>div:not(:last-child){
+    border-right: 1px solid lightgray;
+}

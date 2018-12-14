@@ -26,13 +26,13 @@ export class AppComponent {
             }
     constructor(private httpService: HttpService){
         let t = this;
-        let s = setInterval(function(this){
-            t.httpService.getUsers().subscribe((data:User[]) => {
+        // let s = setInterval(function(this){
+        //     t.httpService.getUsers().subscribe((data:User[]) => {
                 
-                t.mas = data;
+        //         t.mas = data;
                 
-            });
-        }, 5000);
+        //     });
+        // }, 5000);
         
     }
     
