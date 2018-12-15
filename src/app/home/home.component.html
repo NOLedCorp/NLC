@@ -56,7 +56,9 @@
           <h3>Платформы.</h3>
           <p>С помощью наших партнеров мы помогаем вам продвигать ваш продукт.</p>
         </div>
+        
       </div>
+      <a name="tech"></a>
     </div>
   </div>
   
@@ -65,13 +67,14 @@
   <div class="container">
     <div class="steps" style="max-height: unset; display: inline;">
       <div class="steps-header">
+        
         <h1 style="font-weight: 600">Технологии, которые мы используем</h1>
         <p>В наши дни очень важно быть на волне событий, новые веб системы и технологии появляются все чаще и чаще, предоставляя нам возможность улучшать ваши продукту.</p>
         <p>NoLedCorp дает возможность выбора используемых технологий конкретно для вашего сайта. Некоторые из них представленны в этом разделе.</p>
       </div>
       <div class="techs-body">
         <div class="tech" *ngFor="let t of techs">
-          <img src="{{t.img}}" alt="{{t.note}}">
+          <a [routerLink]='["technology/t.id"]'><img src="{{t.img}}" alt="{{t.note}}"></a>
           <span>{{t.note}}</span>
         </div>
       </div>

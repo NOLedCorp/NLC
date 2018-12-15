@@ -11,6 +11,9 @@ export class HttpService{
     getUsers(){
         return this.http.get('http://localhost:80/nlc/users.php');
     }
+    GetTech(id){
+        return this.http.get('http://localhost:80/nlc/techs.php?id='+id);
+    }
     addUser(user:any){
         return this.http.post('http://localhost:80/nlc/test.php', user);
     }

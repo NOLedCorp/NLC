@@ -17,7 +17,14 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization");
 $db = new PDO('mysql:host=localhost;dbname=nlc;charset=UTF8','nlc','12345');
-$user = json_decode(file_get_contents('php://input'), true);
+
+$q = $db->query('SELECT * FROM techs WHERE tech_id = ');
+    $res = [];
+    while ($row = $q->fetch()) {
+        $res[] = new User($row['name'], $row['email'], $row['password']);
+        
+    }
+    echo json_encode($res,true);
 if(isset($user['Name']))
 {
     $u = new Lecturer;

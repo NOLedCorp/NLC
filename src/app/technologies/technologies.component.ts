@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'technologies',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechnologiesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private route: ActivatedRoute, private service:HttpService) { }
 
   ngOnInit() {
+    this.service.GetTech(this.route.snapshot.paramMap.get("id")).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
