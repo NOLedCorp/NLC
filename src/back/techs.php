@@ -1,47 +1,33 @@
 <?php
-class Entree {
-    public $Mark;
-    public $Date;
-    public function __construct($m, $d) {
-        $this->Mark = $m;
-        $this->Date = $d;
+class Tech {
+    public $Id;
+    public $Name;
+    public $Description;
+    public $Logo;
+    public function __construct($id, $n, $d, $l) {
+        $this->Id = $id;
+        $this->Name = $n;
+        $this->Description = $d;
+        $this->Logo = $l;
     }
 }
-class Lecturer {
-    public $Name;
-    public $Email;
-    public $Password;
-}
-header('Content-type: text/html');
 header("Access-Control-Allow-Origin: *"); 
 header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization");
 $db = new PDO('mysql:host=localhost;dbname=nlc;charset=UTF8','nlc','12345');
-
-$q = $db->query('SELECT * FROM techs WHERE tech_id = ');
-    $res = [];
-    while ($row = $q->fetch()) {
-        $res[] = new User($row['name'], $row['email'], $row['password']);
-        
-    }
-    echo json_encode($res,true);
-if(isset($user['Name']))
+if(isset($_GET['id']))
 {
-    $u = new Lecturer;
-    $u -> Name = $user['Name'];
-    $u -> Email = $user['Email'];
-    $u -> Password = $user['Password'];
-    //$stmt = $db->prepare('INSERT INTO dishes (dish_name, price, is_spicy) VALUES (?,?,?)');
-    $result = $db->prepare('INSERT INTO users (NAME, EMAIL, PASSWORD) VALUES (?,?,?)');
-    $result->execute(array($u -> Name, $u -> Email, $u -> Password));
-    //$stmt->execute(array($_POST['new_dish_name'], $_POST['new_price'], $_POST('is_spicy']));
-    //$result = $db->exec("INSERT INTO lecturer (NAME, SURNAME, CITY, UNIV_ID) VALUES ('Ivan', 'Ivanov', 'Voronezh', 22)");
-    echo json_encode($u);
+    $id = $_GET['id'];
+    $q = $db->query("SELECT * FROM techs WHERE tech_id = $id");
+    $s = $q->fetch();
+    $res = new Tech($s['tech_id'], $s['name'], $s['descr'], $s['logo']);
+    echo json_encode($res,true);
 }
 else
 {  
-    echo "веденные данные некорректны";
+    echo "Введенные данные некорректны";
 }
+
 // if(isset($_GET['number']))
 // {
     

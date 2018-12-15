@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
           return;
       }
       console.log(evt.url);
-      if(evt.url=='/'){
+      if(evt.url=='/' || evt.url.indexOf('technology')>-1){
         this.firstPage=true;
         this.showMenu=false;
         this.showLight=false;

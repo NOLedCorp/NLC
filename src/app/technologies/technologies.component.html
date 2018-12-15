@@ -1,3 +1,15 @@
-<p>
-  technologies works!
-</p>
+<div class="top-photo">
+  <div *ngIf="tech" class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="{{tech.Logo}}" alt="{{tech.Name}}">
+      </div>
+      <div class="col-lg-6">
+        <h1>{{tech.Name}}</h1>
+        <p>{{tech.Description}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="blur"></div>    
+</div>
+

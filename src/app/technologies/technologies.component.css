@@ -1,0 +1,106 @@
+.top-photo{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../assets/images/tech.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+}
+.blur{
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.438);
+}
+
+.top-photo .container{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin-left: 40px; 
+    align-items: center;
+    height: 100%;
+}
+.row{
+    width: 100%;
+}
+.row div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.top-photo img{
+    width: 100%;
+}
+.top-photo h1{
+    transition: 0.2s;
+    line-height: 65px;
+    font-size: 60px;
+}
+.top-photo .container p{
+    transition: 0.2s;
+    line-height: 55px;
+    font-weight: 200;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+.top-photo .container>span{
+    transition: 0.2s;
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 20px;
+}
+
+.top-photo button{
+    margin-top: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    width: 200px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+.top-photo button:hover{
+    background-color: rgba(255, 255, 255, 0.171);
+}
+.top-photo button:focus{
+    box-shadow: none;
+}
+
+@media(max-width:768px){
+    
+    .top-photo .container>span{
+      
+        font-size: 16px;
+    }
+    .top-photo button{
+        margin-top: 20px;
+        
+        width: 150px;
+        font-size: 15px;
+    }
+}
+
+@media(max-width:992px){
+    .top-photo .container{
+        margin: 0;
+    }
+    .top-photo .container p{
+        line-height: 30px;
+        font-size: 25px;
+    }
+    .steps-body>div{
+        border-right: none !important;
+        border-bottom:1px solid lightgrey; 
+    }
+    .steps{
+        display: inline !important;
+        max-height: unset !important;
+    }
+}
