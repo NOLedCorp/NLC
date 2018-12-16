@@ -21,7 +21,7 @@ header('Content-type: text/html');
 header("Access-Control-Allow-Origin: *"); 
 header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization");
-$db = new PDO('mysql:host=localhost;dbname=nlc;charset=UTF8','nlc','12345');
+$db = new PDO('mysql:host=localhost;dbname=nomokoiw_nlc;charset=UTF8','nomokoiw_nlc','9GeRox%c');
 $q = $db->query('SELECT * FROM users');
     $res = [];
     while ($row = $q->fetch()) {
