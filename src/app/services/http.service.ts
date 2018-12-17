@@ -11,8 +11,8 @@ export class HttpService{
     getUsers(){
         return this.http.get('http://nomokoiw.beget.tech/users.php');
     }
-    GetTech(id){
-        return this.http.get('http://nomokoiw.beget.tech/techs.php?id='+id);
+    GetTech(){
+        return this.http.get('http://localhost:80/nlc/techs.php');
     }
     addUser(user:any){
         return this.http.post('http://nomokoiw.beget.tech/test.php', user);

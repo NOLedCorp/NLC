@@ -103,4 +103,66 @@
         display: inline !important;
         max-height: unset !important;
     }
+    .home-container .container{
+        max-width: unset !important;
+    }
+    .steps-body>div{
+        border-right: none !important;
+        border-bottom:1px solid lightgrey; 
+    }
+    .steps{
+        display: inline !important;
+        max-height: unset !important;
+    }
+}
+
+.home-container .container{
+    max-width: 80%;
+}
+.home-container{
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: rgb(197, 221, 230);
+}
+.steps{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    z-index: 1;
+    position: relative;
+    height: 100vh;
+    max-height: 720px;
+}
+.steps-header{
+    z-index: 1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.steps-header *{
+    text-align: center;
+}
+.steps-header h1{
+    font-weight: 300;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+.steps-body>div{
+    margin-top: 30px;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.steps-body>div:not(:last-child){
+    border-right: 1px solid lightgray;
 }

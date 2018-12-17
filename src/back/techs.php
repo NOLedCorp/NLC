@@ -14,19 +14,21 @@ class Tech {
 header("Access-Control-Allow-Origin: *"); 
 header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization");
-$db = new PDO('mysql:host=localhost;dbname=nomokoiw_nlc;charset=UTF8','nomokoiw_nlc','9GeRox%c');
-if(isset($_GET['id']))
-{
-    $id = $_GET['id'];
-    $q = $db->query("SELECT * FROM techs WHERE tech_id = $id");
-    $s = $q->fetch();
-    $res = new Tech($s['tech_id'], $s['name'], $s['descr'], $s['logo']);
-    echo json_encode($res,true);
+$db = new PDO('mysql:host=localhost;dbname=nlc;charset=UTF8','nlc','12345');
+//$db = new PDO('mysql:host=localhost;dbname=nomokoiw_nlc;charset=UTF8','nomokoiw_nlc','9GeRox%c');
+
+
+$q = $db->query("SELECT * FROM techs");
+
+$res = [];
+while ($s = $q->fetch()) {
+    $res[] = new Tech($s['tech_id'], $s['name'], $s['descr'], $s['logo']);
+            
 }
-else
-{  
-    echo "Введенные данные некорректны";
-}
+
+
+echo json_encode($res,true);
+
 
 // if(isset($_GET['number']))
 // {
