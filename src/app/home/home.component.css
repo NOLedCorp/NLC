@@ -46,7 +46,7 @@
     margin-top: 20px;
 }
 
-.top-photo button{
+.top-photo a{
     margin-top: 20px;
     background-color: transparent;
     border: 1px solid white;
@@ -55,10 +55,10 @@
     font-size: 20px;
     transition: 0.2s;
 }
-.top-photo button:hover{
+.top-photo a:hover{
     background-color: rgba(255, 255, 255, 0.171);
 }
-.top-photo button:focus{
+.top-photo a:focus{
     box-shadow: none;
 }
 

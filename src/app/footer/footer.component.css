@@ -41,7 +41,7 @@
     padding-right: 20px;
     padding-top: 20px;
 }
-.right button{
+.right a{
     margin-top: 10px;
     background-color: transparent;
     border: 1px solid rgb(0, 0, 0);
@@ -53,10 +53,10 @@
 .right p{
     text-align: end;
 }
-.right button:hover{
+.right a:hover{
     background-color: rgba(109, 109, 109, 0.171);
 }
-.right button:focus{
+.right a:focus{
     box-shadow: none;
 }
 

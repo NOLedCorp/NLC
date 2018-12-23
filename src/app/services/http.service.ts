@@ -12,7 +12,7 @@ export class HttpService{
         return this.http.get('http://nomokoiw.beget.tech/users.php');
     }
     GetTech(){
-        return this.http.get('http://localhost:80/nlc/techs.php');
+        return this.http.get('http://nomokoiw.beget.tech/techs.php');
     }
     addUser(user:any){
         return this.http.post('http://nomokoiw.beget.tech/test.php', user);
