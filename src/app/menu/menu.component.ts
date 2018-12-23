@@ -67,7 +67,10 @@ export class MenuComponent implements OnInit {
   toggle(){
     this.showMenu=!this.showMenu;
     if(this.firstPage){
-      this.showLight= this.showMenu;
+      if(window.pageYOffset==0){
+        this.showLight= this.showMenu;
+      }
+      
     }
     this.showUForm=false;
 
